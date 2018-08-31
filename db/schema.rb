@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_172459) do
+ActiveRecord::Schema.define(version: 2018_08_31_181746) do
 
   create_table "showings", force: :cascade do |t|
     t.string "title"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_172459) do
     t.string "username"
     t.string "password_digest"
     t.integer "age"
-    t.integer "money"
+    t.integer "money", default: 100
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
