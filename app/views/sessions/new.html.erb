@@ -1,0 +1,8 @@
+Please Enter Your Information Below<br>
+<%=form_for :user do |f| %>
+<%=f.text_field :username, :placeholder => "Username"%><br>
+<%=f.password_field :password, :placeholder =>"Password"%><br>
+<%=f.submit "Log In"%><br>
+<%end%>
+Or Log In With Facebook!<br>
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
