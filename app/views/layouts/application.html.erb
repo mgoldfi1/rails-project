@@ -12,7 +12,11 @@
   <body>
     <div class="topnav">
   <a class="active" href="/">Home</a>
-  <a href="/login">Log In</a>
+  <%if session[:user_id].nil?%>
+    <a href="/login">Log In</a>
+    <%else%>
+    <a href="/logout">Log Out</a>
+    <%end%>
   <a href="/showings">Showings</a>
   <a href="/signup">Sign Up</a>
 </div>
