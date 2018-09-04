@@ -2,7 +2,7 @@
 <h2> Your remaining credits: $<%=@user.money%> </h2>
 <h3> Your Tickets: </h3>
 <% if !@user.showings.empty? %>
-<%@user.showings.each do |t|%>
+<%@user.showings.sort_by {|x| x.time}.reverse.each do |t|%>
 <div>
 <%=t.title%> (<%=t.rating%>)<br>
 <%=t.showtime%><br>
