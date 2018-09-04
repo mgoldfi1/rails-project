@@ -14,6 +14,16 @@ class ShowingsController < ApplicationController
 
 
   def new
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
   end
+
+
+  def buy
+    user = User.find(session[:user_id])
+    ticket = Ticket.new(user_id: session[:user_id], showing_id: params[:show_id])
+    flash[:notice] = ticket.buyticket
+    flash[:success] = flash[:notice] if flash[:notice] == "Success"
+    redirect_to user_showings_path(user)
+  end
+
 end

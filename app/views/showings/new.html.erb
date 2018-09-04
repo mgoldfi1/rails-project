@@ -1,6 +1,12 @@
 <%Showing.all.each do |f|%>
+<div>
 Title: <%=f.title%><br>
 Rating: <%=f.rating%><br>
 Time: <%=f.showtime%>
-<%=link_to "Buy Ticket",
+<form method="post" action="/buyticket">
+  <input type="submit" value="Buy Ticket">
+  <input type="hidden" name="show_id"  value="<%=f.id%>">
+  <input type="hidden" name="authenticity_token" id="authenticity_token" value="ANYTHING">
+</form>
+</div>
 <%end%>

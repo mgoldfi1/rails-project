@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#login'
 
   get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+  post '/users', to: 'users#create'
 
   get '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:show] do
+  post '/buyticket', to: 'showings#buy'
+  resources :users, only: [:show, :new, :create] do
     resources :showings, only: [:show, :index, :new]
   end
 end

@@ -17,7 +17,7 @@
     <a href="/login">Log In</a>
     <%else%>
     <a href="/logout">Log Out</a>
-    <%=link_to "Your Showings", user_path(User.find(session[:user_id]))%>
+    <%=link_to "Your Showings", user_showings_path(User.find(session[:user_id]))%>
     <%end%>
 
 </div>

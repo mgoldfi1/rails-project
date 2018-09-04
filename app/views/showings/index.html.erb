@@ -1,8 +1,20 @@
 <h1> Welcome, <%=@user.username%> </h1>
 <h2> Your remaining credits: $<%=@user.money%> </h2>
+<h3> Your Tickets: </h3>
 <% if !@user.showings.empty? %>
 <%@user.showings.each do |t|%>
-<%=t.title%> at <%=t.time%>
+<div>
+<%=t.title%> (<%=t.rating%>)<br>
+<%=t.showtime%><br>
+</div><br>
   <%end%>
 <%end%>
-<%=link_to "Click Here To Buy Tickets", new_user_showing_path(@user)%>
+<%=link_to "Click Here To Buy Tickets", new_user_showing_path(@user)%><br><br>
+
+
+
+<% if flash[:success] %>
+  <div class="success"><%= flash[:success] %></div>
+  <% elsif flash[:notice]  %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>

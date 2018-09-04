@@ -4,9 +4,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_or_create_by(email: auth['email'])
+    @user = User.find_by(email: auth[:info][:email], age: 17)
+
+    if @user
+      session[:user_id] = @user.id
+      redirect_to user_showings_path(@user)
+    else
+    @user = User.new(email: auth[:info][:email], username: auth[:info][:name], age: 17)
+    @user.save(validate: false)
     session[:user_id] = @user.id
     redirect_to user_showings_path(@user)
+    end
   end
 
   def login
