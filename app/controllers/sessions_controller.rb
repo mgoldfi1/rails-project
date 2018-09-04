@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  protect_from_forgery with: :exception
 
   def new
   end
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
   def login
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
+      flash[:success] = "Successfully logged in!"
       session[:user_id] = @user.id
       redirect_to user_showings_path(@user)
     else

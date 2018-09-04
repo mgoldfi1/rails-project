@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Showing.create(title: "Avengers 2", min_age: 17, time: "2018-08-31T18:17:24-03:00")
 Showing.create(title: "Incredibles 2", min_age: 13, time: "2018-08-31T18:17:24-03:00")
+Showing.create(title: "Incredibles 2", min_age: 13, time: "2018-09-07T19:38:46-03:00")

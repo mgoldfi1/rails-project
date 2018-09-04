@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   post '/buyticket', to: 'showings#buy'
+
+  post '/refund', to: 'showings#cancel'
   resources :users, only: [:show, :new, :create] do
     resources :showings, only: [:show, :index, :new]
   end

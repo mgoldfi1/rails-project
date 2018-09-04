@@ -6,6 +6,11 @@
 <div>
 <%=t.title%> (<%=t.rating%>)<br>
 <%=t.showtime%><br>
+  <form method="post" action="/refund">
+    <input type="hidden" name="ticket_id" value="<%=Ticket.find_by(showing_id: t.id).id%>">
+    <input type="hidden" name="authenticity_token" id="authenticity_token" value="ANYTHING">
+    <input type="submit" value="Cancel">
+  </form>
 </div><br>
   <%end%>
 <%end%>
