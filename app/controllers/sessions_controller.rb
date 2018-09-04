@@ -6,14 +6,14 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_or_create_by(email: auth['email'])
     session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    redirect_to user_showings_path(@user)
   end
 
   def login
-    @user = User.find_by(name: params[:user][:username])
+    @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_showings_path(@user)
     else
       render :new
     end

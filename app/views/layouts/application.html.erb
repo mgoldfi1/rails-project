@@ -13,12 +13,13 @@
     <div class="topnav">
   <a class="active" href="/">Home</a>
   <%if session[:user_id].nil?%>
+    <a href="/signup">Sign Up</a>
     <a href="/login">Log In</a>
     <%else%>
     <a href="/logout">Log Out</a>
+    <%=link_to "Your Showings", user_path(User.find(session[:user_id]))%>
     <%end%>
-  <a href="/showings">Showings</a>
-  <a href="/signup">Sign Up</a>
+
 </div>
     <%= yield %>
   </body>

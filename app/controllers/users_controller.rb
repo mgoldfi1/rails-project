@@ -12,21 +12,13 @@ class UsersController < ApplicationController
     if params[:user][:password] == params[:user][:password_confirmation]
       @user = User.create(user_params)
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_showings_path(@user)
     else
       render :new
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-    # binding.pry
-    if session[:user_id] == @user.id
-      render :show
-    else
-      redirect_to root_path
-    end
-  end
+  
 
 
 
