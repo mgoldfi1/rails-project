@@ -18,6 +18,8 @@ belongs_to :showing
     end
   end
 
-
+  def self.topuser
+    group(:user_id).order("count(:user_id)").to_a[0].user_id
+  end
 
 end

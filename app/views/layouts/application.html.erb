@@ -21,6 +21,7 @@
     <%end%>
 
 </div>
+<footer class="top">★Current Top User★: <%=User.find(Ticket.topuser).username%></footer><br><br>
     <%= yield %>
   </body>
 </html>
