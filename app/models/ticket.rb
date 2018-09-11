@@ -22,4 +22,9 @@ belongs_to :showing
     group(:user_id).order("count(:user_id)").to_a[0].user_id
   end
 
+  def self.top
+      group(:showing_id).order('count(*) DESC').limit(1).pluck(:showing_id)[0]
+  end
+
+
 end

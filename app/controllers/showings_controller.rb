@@ -42,4 +42,9 @@ class ShowingsController < ApplicationController
       redirect_to user_showings_path(user)
   end
 
+
+    def topshowing
+      @showing = Showing.find(Ticket.top)
+    end
+
 end
