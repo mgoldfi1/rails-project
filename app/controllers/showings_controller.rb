@@ -46,5 +46,6 @@ class ShowingsController < ApplicationController
     def topshowing
       @showing = Showing.find(Ticket.top)
     end
+  
 
 end

@@ -17,7 +17,9 @@ def showtime
   time.strftime('%m/%d/%Y at %I:%M %p')
 end
 
-
+def self.ratingscope(age)
+  where("min_age <=  ?", age)
+end
 
 
 
